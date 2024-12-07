@@ -2,36 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Wifi, Coffee, Tv } from 'lucide-react';
 import RoomImageSlider from '../components/RoomImageSlider';
+import { roomImages } from '../utils/imageUtils';
 
 const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
-  const singleRoomImages = [
-    '/room1.jpg',
-    '/room2.jpg',
-    '/room3.jpg',
-    '/bathroom.jpg'
-  ];
-
-  const doubleRoomImages = [
-    '/double1.jpg',
-    '/double2.jpg',
-    '/double3.jpg',
-    '/double-bathroom.jpg'
-  ];
-
-  const tripleRoomImages = [
-    '/triple1.jpg',
-    '/triple2.jpg',
-    '/triple3.jpg',
-    '/triple-bathroom.jpg'
-  ];
-
-  const familyRoomImages = [
-    '/family1.jpg',
-    '/family2.jpg',
-    '/family3.jpg',
-    '/family-bathroom.jpg'
-  ];
-
   const rooms = {
     tr: [
       {
@@ -39,7 +12,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Geniş ve konforlu, 30 m² büyüklüğünde, dört ayrı tek kişilik yatak, şehir manzaralı',
         amenities: ['Ücretsiz Wi-Fi', 'LCD TV', 'Klima', 'Minibar', 'Çay/Kahve Seti', 'Oturma Alanı'],
         capacity: 4,
-        images: familyRoomImages,
+        images: roomImages.familyRoom,
         size: '30m²'
       },
       {
@@ -47,7 +20,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Ferah ve konforlu, 25 m² büyüklüğünde, üç ayrı tek kişilik yatak, şehir manzaralı',
         amenities: ['Ücretsiz Wi-Fi', 'LCD TV', 'Klima', 'Minibar', 'Çay/Kahve Seti'],
         capacity: 3,
-        images: tripleRoomImages,
+        images: roomImages.tripleRoom,
         size: '25m²'
       },
       {
@@ -55,7 +28,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Modern ve rahat, 20 m² büyüklüğünde, bir adet çift kişilik yatak, şehir manzaralı',
         amenities: ['Ücretsiz Wi-Fi', 'LCD TV', 'Klima', 'Minibar', 'Çay/Kahve Seti'],
         capacity: 2,
-        images: doubleRoomImages,
+        images: roomImages.doubleRoom,
         size: '20m²'
       },
       {
@@ -63,7 +36,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Şehir manzaralı, 18 m² büyüklüğünde, tek kişilik yatak',
         amenities: ['Ücretsiz Wi-Fi', 'LCD TV', 'Klima', 'Minibar'],
         capacity: 1,
-        images: singleRoomImages,
+        images: roomImages.singleRoom,
         size: '18m²'
       }
     ],
@@ -73,7 +46,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Large and comfortable, 30 m² in size, four single beds, city view',
         amenities: ['Free Wi-Fi', 'LCD TV', 'Air Conditioning', 'Minibar', 'Tea/Coffee Set', 'Seating Area'],
         capacity: 4,
-        images: familyRoomImages,
+        images: roomImages.familyRoom,
         size: '30m²'
       },
       {
@@ -81,7 +54,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Spacious and comfortable, 25 m² in size, three single beds, city view',
         amenities: ['Free Wi-Fi', 'LCD TV', 'Air Conditioning', 'Minibar', 'Tea/Coffee Set'],
         capacity: 3,
-        images: tripleRoomImages,
+        images: roomImages.tripleRoom,
         size: '25m²'
       },
       {
@@ -89,7 +62,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'Modern and cozy, 20 m² in size, one double bed, city view',
         amenities: ['Free Wi-Fi', 'LCD TV', 'Air Conditioning', 'Minibar', 'Tea/Coffee Set'],
         capacity: 2,
-        images: doubleRoomImages,
+        images: roomImages.doubleRoom,
         size: '20m²'
       },
       {
@@ -97,7 +70,7 @@ const Rooms = ({ language }: { language: 'tr' | 'en' }) => {
         description: 'City view, 18 m² in size, single bed',
         amenities: ['Free Wi-Fi', 'LCD TV', 'Air Conditioning', 'Minibar'],
         capacity: 1,
-        images: singleRoomImages,
+        images: roomImages.singleRoom,
         size: '18m²'
       }
     ]

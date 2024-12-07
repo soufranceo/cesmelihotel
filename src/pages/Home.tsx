@@ -1,98 +1,155 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ImageSlider from '../components/ImageSlider';
-import ReviewCard from '../components/ReviewCard';
+import ReviewScroller from '../components/ReviewScroller';
 import CurrencyRates from '../components/CurrencyRates';
 import WorldClock from '../components/WorldClock';
+import WelcomeOverlay from '../components/WelcomeOverlay';
+import SEOHelmet from '../components/SEOHelmet';
 
 const Home = ({ language }: { language: 'tr' | 'en' }) => {
-  const images = [
-    {
-      url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
-      alt: 'Luxury Hotel Exterior'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1582719508461-905c673771fd',
-      alt: 'Hotel Lobby'
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4',
-      alt: 'Hotel Pool'
-    }
-  ];
-
   const reviews = {
     tr: [
-      { name: 'Ahmet Y.', rating: 9.5, comment: 'Muhteşem bir deneyimdi. Personel çok ilgiliydi.' },
-      { name: 'Ayşe K.', rating: 9.0, comment: 'Odalar çok temiz ve konforlu. Kesinlikle tekrar geleceğim.' },
-      { name: 'Mehmet S.', rating: 8.5, comment: 'Konumu mükemmel, her yere yakın.' },
-      { name: 'Fatma D.', rating: 9.8, comment: 'Kahvaltısı harika, personel çok nazik.' },
-      { name: 'Ali R.', rating: 8.7, comment: 'Fiyat/performans açısından çok iyi.' },
-      { name: 'Zeynep B.', rating: 9.2, comment: 'Tarihi yerlere yürüme mesafesinde, harika konum.' },
-      { name: 'Mustafa K.', rating: 8.9, comment: 'Temiz ve bakımlı odalar, güler yüzlü personel.' },
-      { name: 'Esra M.', rating: 9.3, comment: 'Kahvaltı çeşitleri zengin, lezzetli.' },
-      { name: 'Can T.', rating: 8.8, comment: 'Ulaşımı kolay, merkezi konumda.' },
-      { name: 'Selin A.', rating: 9.4, comment: 'Çok memnun kaldık, tekrar geleceğiz.' }
+      {
+        name: "Ahmet Y.",
+        rating: 9,
+        comment: "Merkezi konumu ve temizliği ile harika bir otel. Personel çok ilgili ve yardımsever."
+      },
+      {
+        name: "Ayşe K.",
+        rating: 10,
+        comment: "Kahvaltısı muhteşem, odalar çok konforlu. Kesinlikle tekrar tercih edeceğim."
+      },
+      {
+        name: "Mehmet S.",
+        rating: 9,
+        comment: "İş seyahatleri için ideal. Ulaşım çok kolay ve merkezi konumda."
+      },
+      {
+        name: "Fatma D.",
+        rating: 10,
+        comment: "Aile dostu bir otel. Çocuklarımızla rahat bir konaklama geçirdik."
+      },
+      {
+        name: "Ali R.",
+        rating: 9,
+        comment: "Temizlik ve hijyen konusunda çok titizler. Güvenle kalabilirsiniz."
+      },
+      {
+        name: "Zeynep B.",
+        rating: 9,
+        comment: "Tarihi yerlere yakınlığı büyük avantaj. Personel çok nazik."
+      },
+      {
+        name: "Mustafa K.",
+        rating: 10,
+        comment: "Fiyat/performans açısından mükemmel. Kahvaltı çeşitleri zengin."
+      },
+      {
+        name: "Esra M.",
+        rating: 9,
+        comment: "Odalar ferah ve aydınlık. Konum olarak çok merkezi."
+      }
     ],
     en: [
-      { name: 'John D.', rating: 9.5, comment: 'Amazing experience. Staff was very attentive.' },
-      { name: 'Sarah M.', rating: 9.0, comment: 'Rooms were very clean and comfortable. Will definitely come back.' },
-      { name: 'Michael R.', rating: 8.5, comment: 'Perfect location, close to everything.' },
-      { name: 'Emma L.', rating: 9.8, comment: 'Great breakfast, very polite staff.' },
-      { name: 'David P.', rating: 8.7, comment: 'Excellent value for money.' },
-      { name: 'Lisa K.', rating: 9.2, comment: 'Walking distance to historical sites, great location.' },
-      { name: 'Robert S.', rating: 8.9, comment: 'Clean and well-maintained rooms, friendly staff.' },
-      { name: 'Maria C.', rating: 9.3, comment: 'Rich breakfast variety, delicious.' },
-      { name: 'James B.', rating: 8.8, comment: 'Easy access, central location.' },
-      { name: 'Anna W.', rating: 9.4, comment: 'Very satisfied, will come again.' }
+      {
+        name: "John D.",
+        rating: 9,
+        comment: "Great hotel with central location and cleanliness. Staff very attentive and helpful."
+      },
+      {
+        name: "Sarah M.",
+        rating: 10,
+        comment: "Breakfast is amazing, rooms very comfortable. Will definitely choose again."
+      },
+      {
+        name: "Michael R.",
+        rating: 9,
+        comment: "Ideal for business trips. Transportation is very easy and centrally located."
+      },
+      {
+        name: "Emma W.",
+        rating: 10,
+        comment: "Family-friendly hotel. Had a comfortable stay with our children."
+      },
+      {
+        name: "David L.",
+        rating: 9,
+        comment: "Very meticulous about cleanliness and hygiene. You can stay with confidence."
+      },
+      {
+        name: "Lisa K.",
+        rating: 9,
+        comment: "Proximity to historical places is a big advantage. Staff very polite."
+      },
+      {
+        name: "Robert P.",
+        rating: 10,
+        comment: "Excellent value for money. Rich breakfast varieties."
+      },
+      {
+        name: "Anna S.",
+        rating: 9,
+        comment: "Rooms are spacious and bright. Very central location."
+      }
     ]
   };
 
+  const images = [
+    {
+      url: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+      alt: "Çeşmeli Hotel Dış Görünüm"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1582719508461-905c673771fd",
+      alt: "Otel Lobisi"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061",
+      alt: "Kahvaltı Salonu"
+    }
+  ];
+
+  const seoContent = {
+    tr: {
+      title: 'Çeşmeli Hotel Bursa - Merkezi Konum, Uygun Fiyat',
+      description: 'Bursa\'nın merkezinde, Ulucami ve Kapalı Çarşı\'ya yakın konumda bulunan Çeşmeli Hotel. Ailenizin huzur ve güvenli adresi. Uygun fiyatlı konaklama, ücretsiz WiFi ve açık büfe kahvaltı.',
+      keywords: 'bursa otel, bursa merkez otel, çeşmeli hotel, uygun otel bursa, ulucami yakını otel, kapalı çarşı yakını otel, bursa konaklama, bursa tatil, merkez otel bursa, aile oteli bursa'
+    },
+    en: {
+      title: 'Çeşmeli Hotel Bursa - Central Location, Affordable Prices',
+      description: 'Located in the center of Bursa, close to Ulucami and Grand Bazaar. Your family\'s peaceful and safe address. Affordable accommodation with free WiFi and open buffet breakfast.',
+      keywords: 'bursa hotel, central bursa hotel, cesmeli hotel, affordable hotel bursa, hotel near ulucami, hotel near grand bazaar, bursa accommodation, bursa holiday, central hotel bursa'
+    }
+  };
+
   return (
-    <div>
-      <CurrencyRates />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="max-w-7xl mx-auto"
-      >
-        <div className="h-[400px] mb-8">
-          <ImageSlider images={images} />
+    <>
+      <SEOHelmet
+        title={seoContent[language].title}
+        description={seoContent[language].description}
+        keywords={seoContent[language].keywords}
+        path="/"
+      />
+      <WelcomeOverlay language={language} />
+      <div className="min-h-screen">
+        <ImageSlider images={images} />
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl font-bold text-blue-900 text-center mb-8">
+              {language === 'tr' ? 'Misafirlerimizin Yorumları' : 'Guest Reviews'}
+            </h1>
+            <ReviewScroller reviews={reviews[language]} language={language} />
+          </motion.div>
         </div>
-
-        <div className="px-4 mb-12">
-          <WorldClock />
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="max-w-7xl mx-auto px-4 py-16"
-      >
-        <h2 className="text-3xl font-semibold text-center mb-12 text-blue-900">
-          {language === 'tr' ? 'Misafir Yorumları' : 'Guest Reviews'}
-        </h2>
-        
-        <div className="relative overflow-hidden">
-          <div className="flex animate-scroll space-x-8">
-            {[...reviews[language], ...reviews[language]].map((review, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * (index % reviews[language].length) }}
-                className="w-[300px] flex-shrink-0"
-              >
-                <ReviewCard {...review} language={language} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    </div>
+        <CurrencyRates />
+        <WorldClock />
+      </div>
+    </>
   );
 };
 
